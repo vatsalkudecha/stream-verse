@@ -1,22 +1,64 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, seterrorMessage] = useState(null);
-  
+
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
-  
+
   const handleButtonClick = () => {
     // Validate the form data
-    const message = checkValidData(email.current.value, password.current.value, name.current.value);
+    const message = checkValidData(email.current.value, password.current.value);
     seterrorMessage(message);
-    
-    // Sign-In / Sign-Up 
-  }
+
+    if (message) return;
+
+    // Sign-In / Sign-Up the user
+
+    if (!isSignInForm) {
+      // Sign up logic
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          seterrorMessage(errorCode + " -> " + errorMessage);
+        });
+    } else {
+      // Sign in logic
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          seterrorMessage(errorCode + " -> " + errorMessage);
+        });
+    }
+  };
 
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
@@ -33,7 +75,7 @@ const Login = () => {
       <div className="absolute inset-0 flex justify-center items-center z-10 opacity-85">
         <div className="bg-black bg-opacity-100 rounded-lg p-8  max-w-sm ">
           <form className=" text-white " onSubmit={(e) => e.preventDefault()}>
-            <h1 className="my-1 text-3xl font-bold text-white text-center mb-6 ">
+            <h1 className="my-1 text-3xl font-semibold text-white text-center mb-6 ">
               {isSignInForm ? "Sign In" : "Sign Up"}
             </h1>
             {!isSignInForm && (
@@ -56,8 +98,15 @@ const Login = () => {
               placeholder="Password"
               className="mt-3 w-full p-4 bg-gray-800 rounded-md outline-none "
             />
-            <p className="text-red-500 text-lg font-semibold py-2">{errorMessage}</p>
-            <button className="w-full mt-6 p-4 bg-red-600 rounded-md hover:bg-red-700" onClick={handleButtonClick}>
+            {errorMessage && (
+              <p className="mt-3 text-lg font-semibold text-gray-900 bg-white border-l-4 border-red-400 rounded-lg p-2 shadow-md">
+                {errorMessage}
+              </p>
+            )}
+            <button
+              className="w-full mt-6 p-4 bg-red-600 rounded-md hover:bg-red-700"
+              onClick={handleButtonClick}
+            >
               {isSignInForm ? "Sign In" : "Sign Up"}
             </button>
             <p
