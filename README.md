@@ -24,6 +24,7 @@
 - Get data from TMDB now playing movies list API
 - Added nowPlayingMovies to our movies store
 - Added MovieBackgroundVideo & MovieTitle page
+- Fetch Trailer Video and updating the store with trailer video data
 
 ## Features
 
