@@ -23,6 +23,7 @@
 - Register TMDB API & create an app & get access token
 - Get data from TMDB now playing movies list API
 - Added nowPlayingMovies to our movies store
+- Added MovieBackgroundVideo & MovieTitle page
 
 ## Features
 
