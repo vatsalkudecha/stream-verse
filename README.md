@@ -15,6 +15,9 @@
 - Created Redux Store with userSlice
 - Implemented SignOut
 - Update profile api call
+- BugFix: SignUp user displayName and profile picture update
+- BugFix: If the user is not signed in - Redirect to ("/browse") to Login("/") page 
+    and if LoggedIn - Redirect to ("/") to ("/browse") page
 
 ## Features
 
