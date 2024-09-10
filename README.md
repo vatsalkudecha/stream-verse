@@ -22,9 +22,12 @@
 - Added Constants
 - Register TMDB API & create an app & get access token
 - Get data from TMDB now playing movies list API
-- Added nowPlayingMovies to our movies store
+- Added CUSTOM nowPlayingMovies Hook to our movies store
+- Create movieSlice
 - Added MovieBackgroundVideo & MovieTitle page
 - Fetch Trailer Video and updating the store with trailer video data
+- Embedded the Youtube video and make it autoplay & mute
+- Update the background video container
 
 ## Features
 
