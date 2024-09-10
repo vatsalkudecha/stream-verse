@@ -18,6 +18,8 @@
 - BugFix: SignUp user displayName and profile picture update
 - BugFix: If the user is not signed in - Redirect to ("/browse") to Login("/") page 
     and if LoggedIn - Redirect to ("/") to ("/browse") page
+- Unsubscribe to the onAuthStateChanged callback when component unmounts
+- Added Constants
 
 ## Features
 

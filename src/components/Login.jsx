@@ -10,6 +10,7 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BACKGROUND_IMG, USER_AVATAR } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -42,12 +43,12 @@ const Login = () => {
           console.log(user);
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://example.com/jane-q-user/profile.jpg",
+            photoURL: USER_AVATAR,
           })
             .then(() => {
-              const { uid, email, displayName } = auth.currentUser;
+              const { uid, email, displayName, photoURL } = auth.currentUser;
               dispatch(
-                addUser({ uid: uid, email: email, displayName: displayName })
+                addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL })
               );
               navigate("/browse");
             })
@@ -87,12 +88,12 @@ const Login = () => {
   return (
     <div className="relative h-screen">
       <img
-        className="absolute h-full w-full object-cover"
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/04bef84d-51f6-401e-9b8e-4a521cbce3c5/null/IN-en-20240903-TRIFECTA-perspective_0d3aac9c-578f-4e3c-8aa8-bbf4a392269b_large.jpg"
+        className="absolute h-full w-full object-cover opacity-90"
+        src={BACKGROUND_IMG}
         alt="background"
       />
       <Header /> {/* Header component with remembered styling */}
-      <div className="absolute inset-0 flex justify-center items-center z-10 opacity-85">
+      <div className="absolute inset-0 flex justify-center items-center z-10 opacity-95">
         <div className="bg-black bg-opacity-100 rounded-lg p-8  max-w-sm ">
           <form className=" text-white " onSubmit={(e) => e.preventDefault()}>
             <h1 className="my-1 text-3xl font-semibold text-white text-center mb-6 ">
@@ -109,7 +110,7 @@ const Login = () => {
             <input
               ref={email}
               type="email"
-              placeholder="john.doe@mail.com"
+              placeholder="john.doe@gmail.com"
               className="mt-3 w-full p-4 bg-gray-800 rounded-md outline-none "
             />
             <input
