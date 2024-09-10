@@ -20,6 +20,9 @@
     and if LoggedIn - Redirect to ("/") to ("/browse") page
 - Unsubscribe to the onAuthStateChanged callback when component unmounts
 - Added Constants
+- Register TMDB API & create an app & get access token
+- Get data from TMDB now playing movies list API
+- Added nowPlayingMovies to our movies store
 
 ## Features
 
