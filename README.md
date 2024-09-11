@@ -33,6 +33,9 @@
 - Build Movie Card
 - Fetch Popular Movies from TMDB API and usePopularMovies Hook
 - Fetch Top_Rated & Upcoming Movies from TMDB API and store the results in store using useTopRatedMovies and useUpcomingMovies Hook
+- GPT Search Page
+- GPT Search Bar
+- Added Multi language feature on GPT Page
 
 ## Features
 
