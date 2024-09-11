@@ -29,6 +29,8 @@
 - Embedded the Youtube video and make it autoplay & mute
 - Update the background video container
 - Build Secondary component
+- Build Movie List
+- Build Movie Card
 - Fetch Popular Movies from TMDB API and usePopularMovies Hook
 
 ## Features
