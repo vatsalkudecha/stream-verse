@@ -6,7 +6,6 @@ const MovieList = ({ title, movies }) => {
   return (
     <div className="">
       <h1 className="text-3xl font-semibold p-3 text-white">{title}</h1>
-
       <div
         className="flex overflow-x-auto space-x-4 p-3 scroll-smooth snap-x"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
