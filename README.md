@@ -36,6 +36,7 @@
 - GPT Search Page
 - GPT Search Bar
 - Added Multi language feature on GPT Page
+- Added GPT Search results Movies and TMDB Search results in the gpt Slice
 
 ## Features
 
