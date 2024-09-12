@@ -37,6 +37,9 @@
 - GPT Search Bar
 - Added Multi language feature on GPT Page
 - Added GPT Search results Movies and TMDB Search results in the gpt Slice
+- Put the gpt Searched movies in the Moviecard
+- Securing the APIs 
+- Memoize the upcomingMovies, topRatedMovies, popularMovies, nowPlayingMovies and trailerVideo
 
 ## Features
 
