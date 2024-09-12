@@ -5,9 +5,9 @@ import { BACKGROUND_IMG } from "../utils/constants";
 
 const GptSearch = () => {
   return (
-    <div>
-      <img
-        className="absolute h-full w-full object-cover opacity-85"
+    <div className="absolute h-screen inset-0 z-[-10]">
+        <img
+        className="fixed h-full w-full object-cover opacity-85"
         src={BACKGROUND_IMG}
         alt="background"
       />

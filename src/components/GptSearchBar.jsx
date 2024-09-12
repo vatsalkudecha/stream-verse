@@ -22,7 +22,14 @@ const GptSearchBar = () => {
     );
 
     const json = await data.json();
-    return json.results;
+    // return json.results;
+    
+    // Filter results for an exact match by movie title
+    const exactMatches = json.results.filter(
+      (result) => result.title.toLowerCase() === movie.trim().toLowerCase()
+    );
+
+    return exactMatches;
   };
 
   const handleGptSearchClick = async () => {
@@ -56,7 +63,7 @@ const GptSearchBar = () => {
 
     console.log(tmdbResults);
 
-    dispatch(addGptMovieResult({movieNames: gptMovies, movieResult: tmdbResults}));
+    dispatch(addGptMovieResult({movieNames: gptMovies, movieResults: tmdbResults}));
   };
 
   return (
